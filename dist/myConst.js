@@ -8,5 +8,6 @@ module.exports =
 {
     ROLE_HARVESTER,
     ROLE_UPGRADER,
-    TASK_HARVEST
+    TASK_HARVEST,
+    TASK_UPGRADE
 }
