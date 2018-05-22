@@ -17,12 +17,12 @@ for(var name in Game.creeps)
 {
     var creep = Game.creeps[name];
     
-    if(creep.memory.role == c.ROLE_HARVESTER)
+    if(creep.memory.role == c.ROLE.HARVESTER)
     {
         harvester.run(creep);
     }
     
-    if(creep.memory.role == c.ROLE_UPGRADER)
+    if(creep.memory.role == c.ROLE.UPGRADER)
     {
         upgrader.run(creep);
     }

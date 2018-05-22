@@ -11,7 +11,7 @@ module.exports = some_module;
 
 
 // Main
-var some_module = require('role.harvester');
+var some_module = require('TASK.HARVESTER');
 
 for(var name in Game.creeps) {
     var creep = Game.creeps[name];

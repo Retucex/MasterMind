@@ -5,7 +5,7 @@ var upgrader =
 {
     run: function(creep)
     {
-        if(creep.memory.task == c.TASK_HARVEST)
+        if(creep.memory.task == c.TASK.HARVEST)
         {
             if(creep.carry.energy < creep.carryCapacity)
             {
@@ -13,11 +13,11 @@ var upgrader =
             }
             else
             {
-                creep.memory.task = c.TASK_UPGRADE;
+                creep.memory.task = c.TASK.UPGRADE;
             }
         }
     
-        else if(creep.memory.task == c.TASK_UPGRADE)
+        else if(creep.memory.task == c.TASK.UPGRADE)
         {
             if(creep.carry.energy > 0)
             {
@@ -25,7 +25,7 @@ var upgrader =
             }
             else
             {
-                creep.memory.task = c.TASK_HARVEST;
+                creep.memory.task = c.TASK.HARVEST;
             }
         }
 
@@ -39,7 +39,7 @@ var upgrader =
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
             "Upgrader" + Game.time.toString(),
-            {memory: {role: c.ROLE_UPGRADER, task: c.TASK_HARVEST, spawner: spawnName}});
+            {memory: {role: c.ROLE.UPGRADER, task: c.TASK.HARVEST, spawner: spawnName}});
     }
 };
 

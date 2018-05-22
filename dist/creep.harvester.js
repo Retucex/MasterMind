@@ -24,8 +24,8 @@ var harvester =
     build: function(spawnName)
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
-            c.ROLE_HARVESTER + Game.time.toString(),
-            {memory: {role: c.ROLE_HARVESTER, spawner: spawnName}});
+            c.ROLE.HARVESTER + Game.time.toString(),
+            {memory: {role: c.ROLE.HARVESTER, spawner: spawnName}});
     }
 };
 
