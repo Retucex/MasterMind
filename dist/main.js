@@ -1,5 +1,6 @@
-var harvester = require('creep.basicHarvester');
-var upgrader = require('creep.basicUpgrader');
+var c = require('myConst');
+var harvester = require('creep.harvester');
+var upgrader = require('creep.upgrader');
 var creepSpawner = require('creepSpawner');
 
 // iterate Memory.creeps to find dead creeps
@@ -16,12 +17,12 @@ for(var name in Game.creeps)
 {
     var creep = Game.creeps[name];
     
-    if(creep.memory.role == 'Harvester')
+    if(creep.memory.role == c.ROLE_HARVESTER)
     {
         harvester.run(creep);
     }
     
-    if(creep.memory.role == 'Upgrader')
+    if(creep.memory.role == c.ROLE_UPGRADER)
     {
         upgrader.run(creep);
     }

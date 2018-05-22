@@ -1,5 +1,6 @@
-var basicHarvester = require('creep.basicHarvester');
-var basicUpgrader = require('creep.basicUpgrader');
+var harvester = require('creep.harvester');
+var upgrader = require('creep.upgrader');
+var c = require('myConst');
 
 var creepSpawner =
 {
@@ -12,14 +13,17 @@ var creepSpawner =
         {
             var rolesInRoom = creepsByRoom[room];
 
-            if(rolesInRoom['Upgrader'] < 4)
+            //TODO add logic for multiple spawner
+            var spawnName = Game.rooms[room].find(FIND_MY_SPAWNS)[0].name;
+
+            if(rolesInRoom[c.ROLE_UPGRADER] < 4)
             {
-                Game.rooms[room].find(FIND_MY_SPAWNS)[0].spawnCreep([MOVE, MOVE, WORK, CARRY], "Upgrader" + Game.time.toString(), {memory: {role: 'Upgrader', task: 'harvest'}});
+                upgrader.build(spawnName);
             }
             
-            if(rolesInRoom['Harvester'] < 2)
+            if(rolesInRoom[c.ROLE_HARVESTER] < 2)
             {
-                Game.rooms[room].find(FIND_MY_SPAWNS)[0].spawnCreep([MOVE, MOVE, WORK, CARRY], "Harvester" + Game.time.toString(), {memory: {role: 'Harvester'}});
+                harvester.build(spawnName);
             }
         }
         
