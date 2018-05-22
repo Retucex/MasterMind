@@ -10,7 +10,7 @@ var harvester =
             commands.moveToHarvest(creep);
         }
     
-        else if(Game.spawns[creep.memory.spawner].energy < Game.spawns[creep.memory.spawner].energyCapacity)
+        else if(Game.spawns['Spawn1'].energy < Game.spawns['Spawn1'].energyCapacity)
         {
             commands.transferToSpawn(creep);
         }
