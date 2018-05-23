@@ -23,3 +23,5 @@ for(var name in Game.creeps) {
 
 // Misc
 Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'basicHarvester1', {memory: {role: "basicHarvester"}});
+
+var c = _.filter(Memory.creeps, {role: "Upgrader"});
