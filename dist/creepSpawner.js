@@ -16,12 +16,12 @@ var creepSpawner =
             //TODO add logic for multiple spawner
             var spawnName = Game.rooms[room].find(FIND_MY_SPAWNS)[0].name;
 
-            if(rolesInRoom[c.ROLE.UPGRADER] < 10)
+            if(!(c.ROLE.UPGRADER in rolesInRoom) || rolesInRoom[c.ROLE.UPGRADER] < 10)
             {
                 upgrader.build(spawnName);
             }
             
-            if(rolesInRoom[c.ROLE.HARVESTER] < 5)
+            if(!(c.ROLE.HARVESTER in rolesInRoom) || rolesInRoom[c.ROLE.HARVESTER] < 5)
             {
                 harvester.build(spawnName);
             }
