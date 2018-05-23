@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var c = require('myConst');
 var harvester = require('creep.harvester');
 var upgrader = require('creep.upgrader');
@@ -29,3 +30,10 @@ for(var name in Game.creeps)
 }
 
 creepSpawner.run();
+
+var f = _.filter(Game.creeps, {role: 'Harvester'});
+
+for(var x in f)
+{
+    console.log(x);
+}
