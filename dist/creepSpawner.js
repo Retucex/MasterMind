@@ -7,7 +7,7 @@ var creepSpawner =
     run: function()
     {
         var creepsByRoom = aggregateCreeps();
-        logToConsole(creepsByRoom);
+        //logToConsole(creepsByRoom);
         
         for(var room in creepsByRoom)
         {
