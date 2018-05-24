@@ -3,14 +3,13 @@ module.exports =
     run: function(room)
     {
         var sources = room.find(FIND_SOURCES);
-        for(var source in sources)
+        for(var s in sources)
         {
-            var terrain = room.lookForAtArea(LOOK_TERRAIN, source.pos.y + 1,
-                                                            source.pos.x - 1,
-                                                            source.pos.y - 1,
-                                                            source.pos.x + 1,
-                                                            true);
-            console.log(source + " " + terrain);
+            var terrain = room.lookForAtArea(LOOK_TERRAIN, sources[s].pos.y + 1,
+                sources[s].pos.x - 1,
+                sources[s].pos.y - 1,
+                sources[s].pos.x + 1,
+                true);
         }
     }
 }
