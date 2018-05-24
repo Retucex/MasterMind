@@ -2,10 +2,15 @@ module.exports =
 {
     run: function(room)
     {
-        var sources = Game.rooms[room].find(FIND_SOURCES);
+        var sources = room.find(FIND_SOURCES);
         for(var source in sources)
         {
-            console.log(room + " " + source);
+            var terrain = room.lookForAtArea(LOOK_TERRAIN, source.pos.y + 1,
+                                                            source.pos.x - 1,
+                                                            source.pos.y - 1,
+                                                            source.pos.x + 1,
+                                                            true);
+            console.log(source + " " + terrain);
         }
     }
 }
