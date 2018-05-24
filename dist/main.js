@@ -1,7 +1,8 @@
 var _ = require('lodash');
 var c = require('myConst');
-var harvester = require('creep.harvester');
-var upgrader = require('creep.upgrader');
+var creep_harvester = require('creep.harvester');
+var creep_upgrader = require('creep.upgrader');
+var room_standard = require('room.standard');
 var creepSpawner = require('creepSpawner');
 
 module.exports.loop = function()
@@ -16,19 +17,26 @@ module.exports.loop = function()
         
     }
 
-    for(var name in Game.creeps)
+    for(var creepKey in Game.creeps)
     {
-        var creep = Game.creeps[name];
+        var creep = Game.creeps[creepKey];
         
         if(creep.memory.role == c.ROLE.HARVESTER)
         {
-            harvester.run(creep);
+            creep_harvester.run(creep);
         }
         
         if(creep.memory.role == c.ROLE.UPGRADER)
         {
-            upgrader.run(creep);
+            creep_upgrader.run(creep);
         }
+    }
+
+    for(var roomKey in Game.rooms)
+    {
+        var room = Game.rooms[roomKey];
+
+        room_standard.run(room);
     }
 
     creepSpawner.run();

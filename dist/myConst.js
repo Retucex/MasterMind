@@ -9,5 +9,9 @@ module.exports =
     {
         HARVEST: 'Harvest',
         UPGRADE: 'Upgrade',
+    },
+    ARCHETYPE:
+    {
+        STANDARD: 'Standard'
     }
 }
