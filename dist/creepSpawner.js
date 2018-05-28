@@ -8,7 +8,6 @@ var creepSpawner =
     run: function()
     {
         var creepsByRoom = aggregateCreeps();
-        //logToConsole(creepsByRoom);
         
         for(var room in creepsByRoom)
         {
@@ -64,23 +63,6 @@ function aggregateCreeps()
     }
     
     return creepsByRoom;
-}
-
-// Log results to console
-function logToConsole(creepsByRoom)
-{
-    for(var room in creepsByRoom)
-    {
-        console.log(room);
-        var rolesInRoom = creepsByRoom[room];
-        
-        for(var role in rolesInRoom)
-        {
-            console.log(role + ": " + rolesInRoom[role]);
-        }
-    }
-    
-    return OK
 }
 
 module.exports = creepSpawner
