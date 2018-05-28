@@ -1,5 +1,6 @@
 var harvester = require('creep.harvester');
 var upgrader = require('creep.upgrader');
+var builder = require('creep.builder');
 var c = require('myConst');
 
 var creepSpawner =
@@ -22,6 +23,11 @@ var creepSpawner =
             }
             
             if(!(c.ROLE.HARVESTER in rolesInRoom) || rolesInRoom[c.ROLE.HARVESTER] < 5)
+            {
+                harvester.build(spawnName);
+            }
+
+            if(!(c.ROLE.BUILDER in rolesInRoom) || rolesInRoom[c.ROLE.BUILDER] < 2)
             {
                 harvester.build(spawnName);
             }

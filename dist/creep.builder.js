@@ -1,7 +1,7 @@
 var commands = require('creep.commands');
 var c = require('myConst');
 
-var upgrader =
+var builder =
 {
     run: function(creep)
     {
@@ -13,15 +13,15 @@ var upgrader =
             }
             else
             {
-                creep.memory.task = c.TASK.UPGRADE;
+                creep.memory.task = c.TASK.BUILD;
             }
         }
     
-        else if(creep.memory.task == c.TASK.UPGRADE)
+        else if(creep.memory.task == c.TASK.BUILD)
         {
             if(creep.carry.energy > 0)
             {
-                commands.moveToUpgrade(creep);
+                commands.moveToBuild(creep);
             }
             else
             {
@@ -38,9 +38,9 @@ var upgrader =
     build: function(spawnName)
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
-            c.ROLE.UPGRADER + Game.time.toString(),
-            {memory: {role: c.ROLE.UPGRADER, task: c.TASK.HARVEST, spawner: spawnName}});
+            c.ROLE.BUILDER + Game.time.toString(),
+            {memory: {role: c.ROLE.BUILDER, task: c.TASK.HARVEST, spawner: spawnName}});
     }
 };
 
-module.exports = upgrader;
+module.exports = builder;
