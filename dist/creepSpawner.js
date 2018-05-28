@@ -7,7 +7,7 @@ var creepSpawner =
 {
     run: function()
     {
-        var creepsByRoom = aggregateCreeps();
+        var creepsByRoom = countCreeps();
         
         for(var room in creepsByRoom)
         {
@@ -28,15 +28,17 @@ var creepSpawner =
 
             if(!(c.ROLE.BUILDER in rolesInRoom) || rolesInRoom[c.ROLE.BUILDER] < 2)
             {
-                harvester.build(spawnName);
+                builder.build(spawnName);
             }
         }
         
-    }
+    },
+
+    countCreeps: countCreeps
 };
 
 //Aggregate all creeps by room and by roles
-function aggregateCreeps()
+function countCreeps()
 {
     var creepsByRoom = {};
     

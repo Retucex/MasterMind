@@ -17,7 +17,7 @@ var manual =
     // Log results to console
     logToConsole: function()
     {
-        var creepsByRoom = creepSpawner.aggregateCreeps();
+        var creepsByRoom = creepSpawner.countCreeps();
 
         for(var room in creepsByRoom)
         {
