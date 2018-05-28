@@ -1,5 +1,5 @@
-var basicHarvester = require('creep.basicHarvester');
-var basicUpgrader = require('creep.basicUpgrader');
+var basicHarvester = require('creep.harvester');
+var basicUpgrader = require('creep.upgrader');
 var creepSpawner = require('creepSpawner');
 
 var manual =
