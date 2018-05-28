@@ -2,6 +2,7 @@ var _ = require('lodash');
 var c = require('myConst');
 var creep_harvester = require('creep.harvester');
 var creep_upgrader = require('creep.upgrader');
+var creep_builder = require('creep.builder');
 var room_standard = require('room.standard');
 var creepSpawner = require('creepSpawner');
 
@@ -26,9 +27,14 @@ module.exports.loop = function()
             creep_harvester.run(creep);
         }
         
-        if(creep.memory.role == c.ROLE.UPGRADER)
+        else if(creep.memory.role == c.ROLE.UPGRADER)
         {
             creep_upgrader.run(creep);
+        }
+
+        else if(creep.memory.role == c.ROLE.BUILDER)
+        {
+            creep_builder.run(creep);
         }
     }
 
