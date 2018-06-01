@@ -5,6 +5,26 @@ module.exports =
 {
     run: function(creep)
     {
+        if(!creep.memory.target)
+        {
+            creep.memory.target = creep.room.find(FIND_MY_SPAWNS)[0];
+
+            if(creep.memory.target.energy >= creep.memory.target.energyCapacity)
+            {
+                const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
+                    function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
+
+                for(var t in targets)
+                {
+                    if(t.energy < t.energyCapacity)
+                    {
+                        creep.memory.target = t;
+                        break;
+                    }
+                }
+            }
+        }
+
         if(creep.memory.task == c.TASK.HARVEST)
         {
             if(creep.carry.energy < creep.carryCapacity)
@@ -12,14 +32,9 @@ module.exports =
                 commands.moveToHarvest(creep);
             }
         
-            else if(Game.spawns['Spawn1'].energy < Game.spawns['Spawn1'].energyCapacity)
-            {
-                commands.moveToTransfer(creep);
-            }
-
             else
             {
-                creep.say('No bueno');
+                commands.moveToTransfer(creep, creep.memory.target);
             }
         }
         

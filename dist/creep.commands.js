@@ -12,22 +12,15 @@ module.exports =
         }
     },
     	
-    moveToTransfer: function(creep)
+    moveToTransfer: function(creep, target)
     {
-        const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
-            function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
-
-        for(var target in targets)
+        if(target.energy < target.energyCapacity)
         {
-            if(target.energy < target.energyCapacity)
+            if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
             {
-                if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
-                {
-                    creep.moveTo(target);
-                }
+                creep.moveTo(target);
             }
         }
-        
     },
     
     moveToUpgrade: function(creep)
