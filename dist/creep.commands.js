@@ -14,11 +14,12 @@ module.exports =
     	
     moveToTransfer: function(creep, target)
     {
-        if(target.energy < target.energyCapacity)
+        var t = Game.getObjectById(target)
+        if(t.energy < t.energyCapacity)
         {
-            if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+            if(creep.transfer(t, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
             {
-                creep.moveTo(target);
+                creep.moveTo(t);
             }
         }
     },
