@@ -1,3 +1,5 @@
+_ = require('lodash');
+
 module.exports =
 {
     moveToHarvest: function(creep)
@@ -10,13 +12,22 @@ module.exports =
         }
     },
     	
-    transferToSpawn: function(creep)
+    moveToTransfer: function(creep)
     {
-        const spawns = creep.room.find(FIND_MY_SPAWNS)
-        if(creep.transfer(spawns[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+        const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
+            function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
+
+        for(var target in targets)
         {
-            creep.moveTo(Game.spawns['Spawn1']);
+            if(target.energy < target.energyCapacity)
+            {
+                if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+                {
+                    creep.moveTo(Game.spawns['Spawn1']);
+                }
+            }
         }
+        
     },
     
     moveToUpgrade: function(creep)

@@ -14,7 +14,7 @@ module.exports =
         
             else if(Game.spawns['Spawn1'].energy < Game.spawns['Spawn1'].energyCapacity)
             {
-                commands.transferToSpawn(creep);
+                commands.moveToTransfer(creep);
             }
 
             else
