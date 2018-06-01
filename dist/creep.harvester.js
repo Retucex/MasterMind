@@ -7,9 +7,13 @@ module.exports =
     {
         if(!creep.memory.target)
         {
-            creep.memory.target = creep.room.find(FIND_MY_SPAWNS)[0];
+            creep.memory.target = creep.room.find(FIND_MY_SPAWNS)[0].id;
+        }
+        else
+        {
+            var t = Game.getObjectById(creep.memory.target)
 
-            if(creep.memory.target.energy >= creep.memory.target.energyCapacity)
+            if(t.energy >= t.energyCapacity)
             {
                 const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
                     function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
@@ -18,7 +22,7 @@ module.exports =
                 {
                     if(t.energy < t.energyCapacity)
                     {
-                        creep.memory.target = t;
+                        creep.memory.target = t.id;
                         break;
                     }
                 }
