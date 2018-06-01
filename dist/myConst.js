@@ -4,26 +4,28 @@ module.exports =
     {
         HARVESTER:
         {
-            NAME = 'Harvester',
-            LIMIT = 5
+            NAME: 'Harvester',
+            LIMIT: 5
         },
         UPGRADER:
         {
-            NAME = 'Upgrader',
-            LIMIT = 10
+            NAME: 'Upgrader',
+            LIMIT: 10
         },
         BUILDER:
         {
-            NAME = 'Builder',
-            LIMIT = 2
+            NAME: 'Builder',
+            LIMIT: 2
         },
     },
+
     TASK:
     {
         HARVEST: 'Harvest',
         UPGRADE: 'Upgrade',
         BUILD: 'Build'
     },
+    
     ARCHETYPE:
     {
         STANDARD: 'Standard'
