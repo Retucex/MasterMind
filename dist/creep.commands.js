@@ -23,6 +23,15 @@ module.exports =
             }
         }
     },
+
+    moveToWithdraw: function(creep, target)
+    {
+        var t = Game.getObjectById(target)
+        if(creep.transfer(t, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
+        {
+            creep.moveTo(t);
+        }
+    },
     
     moveToUpgrade: function(creep)
     {

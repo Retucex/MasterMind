@@ -25,7 +25,7 @@ module.exports =
             //Upgrader
             if(!(c.ROLE.UPGRADER.NAME in rolesInRoom) || rolesInRoom[c.ROLE.UPGRADER.NAME] < c.ROLE.UPGRADER.LIMIT)
             {
-                upgrader.build(spawnName);
+                upgrader.build(spawnName, Game.rooms[room].find(FIND_MY_SPAWNS)[0].id);
             }
 
             //Builder
