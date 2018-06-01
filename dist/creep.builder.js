@@ -1,7 +1,7 @@
-var commands = require('creep.commands');
-var c = require('myConst');
+var commands = require('./creep.commands');
+var c = require('./myConst');
 
-var builder =
+module.exports =
 {
     run: function(creep)
     {
@@ -42,5 +42,3 @@ var builder =
             {memory: {role: c.ROLE.BUILDER, task: c.TASK.HARVEST, spawner: spawnName}});
     }
 };
-
-module.exports = builder;

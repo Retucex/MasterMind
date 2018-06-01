@@ -1,9 +1,9 @@
-var harvester = require('creep.harvester');
-var upgrader = require('creep.upgrader');
-var builder = require('creep.builder');
-var c = require('myConst');
+var harvester = require('./creep.harvester');
+var upgrader = require('./creep.upgrader');
+var builder = require('./creep.builder');
+var c = require('./myConst');
 
-var creepSpawner =
+module.exports =
 {
     run: function()
     {
@@ -66,5 +66,3 @@ function countCreeps()
     
     return creepsByRoom;
 }
-
-module.exports = creepSpawner

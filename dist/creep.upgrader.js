@@ -1,7 +1,7 @@
-var commands = require('creep.commands');
-var c = require('myConst');
+var commands = require('./creep.commands');
+var c = require('./myConst');
 
-var upgrader =
+module.exports =
 {
     run: function(creep)
     {
@@ -42,5 +42,3 @@ var upgrader =
             {memory: {role: c.ROLE.UPGRADER, task: c.TASK.HARVEST, spawner: spawnName}});
     }
 };
-
-module.exports = upgrader;

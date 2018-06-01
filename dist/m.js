@@ -1,9 +1,19 @@
-var basicHarvester = require('creep.harvester');
-var basicUpgrader = require('creep.upgrader');
-var creepSpawner = require('creepSpawner');
+var basicHarvester = require('./creep.harvester');
+var basicUpgrader = require('./creep.upgrader');
+var creepSpawner = require('./creepSpawner');
 
-var manual =
+module.exports =
 {
+    logBasics: function() {
+        console.log("---CPU---");
+        console.log("Limit: " + Game.cpu.limit);
+        console.log("Tick Limit: " + Game.cpu.tickLimit);
+        console.log("Bucket: " + Game.cpu.bucket);
+        console.log();
+
+        return OK;
+    },
+
     buildHarvester: function()
     {
         basicHarvester.build();
@@ -15,7 +25,7 @@ var manual =
     },
 
     // Log results to console
-    logToConsole: function()
+    logCreepTypes: function()
     {
         var creepsByRoom = creepSpawner.countCreeps();
 
@@ -33,5 +43,3 @@ var manual =
         return OK
     }
 }
-
-module.exports = manual;
