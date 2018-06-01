@@ -37,7 +37,7 @@ module.exports =
         
     },
     
-    build: function(spawnName)
+    build: function(spawnName, spawnId)
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
             c.ROLE.HARVESTER.NAME + Game.time.toString(),
@@ -45,6 +45,6 @@ module.exports =
                 {role: c.ROLE.HARVESTER.NAME,
                 task: c.TASK.HARVEST,
                 spawner: spawnName,
-                target: creep.room.find(FIND_MY_SPAWNS)[0].id}});
+                target: spawnId}});
     }
 };
