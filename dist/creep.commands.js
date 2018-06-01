@@ -23,7 +23,7 @@ module.exports =
             {
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)
                 {
-                    creep.moveTo(Game.spawns['Spawn1']);
+                    creep.moveTo(target);
                 }
             }
         }
