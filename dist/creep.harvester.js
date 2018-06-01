@@ -11,18 +11,18 @@ module.exports =
         }
         else
         {
-            var t = Game.getObjectById(creep.memory.target)
+            var target = Game.getObjectById(creep.memory.target)
 
-            if(t.energy >= t.energyCapacity)
+            if(target.energy >= target.energyCapacity)
             {
                 const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
                     function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
 
-                for(var t in targets)
+                for(var target in targets)
                 {
-                    if(t.energy < t.energyCapacity)
+                    if(target.energy < target.energyCapacity)
                     {
-                        creep.memory.target = t.id;
+                        creep.memory.target = target.id;
                         break;
                     }
                 }
