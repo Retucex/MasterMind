@@ -10,7 +10,7 @@ module.exports =
         UPGRADER:
         {
             NAME: 'Upgrader',
-            LIMIT: 10
+            LIMIT: 5
         },
         BUILDER:
         {
@@ -25,7 +25,7 @@ module.exports =
         UPGRADE: 'Upgrade',
         BUILD: 'Build'
     },
-    
+
     ARCHETYPE:
     {
         STANDARD: 'Standard'
