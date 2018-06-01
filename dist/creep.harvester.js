@@ -5,26 +5,19 @@ module.exports =
 {
     run: function(creep)
     {
-        if(!creep.memory.target)
-        {
-            creep.memory.target = creep.room.find(FIND_MY_SPAWNS)[0].id;
-        }
-        else
-        {
-            var target = Game.getObjectById(creep.memory.target)
+        var tar = Game.getObjectById(creep.memory.target)
 
-            if(target.energy >= target.energyCapacity)
+        if(tar.energy >= tar.energyCapacity)
+        {
+            const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
+                function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
+
+            for(var t in targets)
             {
-                const targets = _.filter(creep.room.find(FIND_MY_STRUCTURES),
-                    function(o) { return o.structureType == STRUCTURE_SPAWN || o.structureType == STRUCTURE_EXTENSION; });
-
-                for(var target in targets)
+                if(t.energy < t.energyCapacity)
                 {
-                    if(target.energy < target.energyCapacity)
-                    {
-                        creep.memory.target = target.id;
-                        break;
-                    }
+                    creep.memory.target = t.id;
+                    break;
                 }
             }
         }
@@ -48,6 +41,10 @@ module.exports =
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
             c.ROLE.HARVESTER.NAME + Game.time.toString(),
-            {memory: {role: c.ROLE.HARVESTER.NAME, task: c.TASK.HARVEST, spawner: spawnName}});
+            {memory:
+                {role: c.ROLE.HARVESTER.NAME,
+                task: c.TASK.HARVEST,
+                spawner: spawnName,
+                target: creep.room.find(FIND_MY_SPAWNS)[0].id}});
     }
 };
