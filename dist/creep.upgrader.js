@@ -67,6 +67,6 @@ module.exports =
             {memory: {role: c.ROLE.UPGRADER.NAME,
                 task: c.TASK.HARVEST,
                 spawner: spawnName,
-                target = spawnId}});
+                target: spawnId}});
     }
 };
