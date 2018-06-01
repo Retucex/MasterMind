@@ -16,19 +16,22 @@ module.exports =
             //TODO add logic for multiple spawner
             var spawnName = Game.rooms[room].find(FIND_MY_SPAWNS)[0].name;
 
-            if(!(c.ROLE.UPGRADER in rolesInRoom) || rolesInRoom[c.ROLE.UPGRADER] < 10)
+            if(!(c.ROLE.UPGRADER.NAME in rolesInRoom) || rolesInRoom[c.ROLE.UPGRADER.NAME] < c.ROLE.UPGRADER.LIMIT)
             {
                 upgrader.build(spawnName);
             }
             
-            if(!(c.ROLE.HARVESTER in rolesInRoom) || rolesInRoom[c.ROLE.HARVESTER] < 5)
+            if(!(c.ROLE.HARVESTER.NAME in rolesInRoom) || rolesInRoom[c.ROLE.HARVESTER.NAME] < c.ROLE.HARVESTER.LIMIT)
             {
                 harvester.build(spawnName);
             }
 
-            if(!(c.ROLE.BUILDER in rolesInRoom) || rolesInRoom[c.ROLE.BUILDER] < 2)
+            if(!(c.ROLE.BUILDER.NAME in rolesInRoom) || rolesInRoom[c.ROLE.BUILDER.NAME] < c.ROLE.BUILDER.LIMIT)
             {
-                builder.build(spawnName);
+                if(Game.rooms[room].find(FIND_MY_CONSTRUCTION_SITES).length > 0)
+                {
+                    builder.build(spawnName);
+                }
             }
         }
         

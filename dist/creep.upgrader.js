@@ -38,7 +38,7 @@ module.exports =
     build: function(spawnName)
     {
         Game.spawns[spawnName].spawnCreep([MOVE, MOVE, WORK, CARRY],
-            c.ROLE.UPGRADER + Game.time.toString(),
-            {memory: {role: c.ROLE.UPGRADER, task: c.TASK.HARVEST, spawner: spawnName}});
+            c.ROLE.UPGRADER.NAME + Game.time.toString(),
+            {memory: {role: c.ROLE.UPGRADER.NAME, task: c.TASK.HARVEST, spawner: spawnName}});
     }
 };

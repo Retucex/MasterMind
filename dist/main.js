@@ -22,17 +22,17 @@ module.exports.loop = function()
     {
         var creep = Game.creeps[creepKey];
         
-        if(creep.memory.role == c.ROLE.HARVESTER)
+        if(creep.memory.role == c.ROLE.HARVESTER.NAME)
         {
             creep_harvester.run(creep);
         }
         
-        else if(creep.memory.role == c.ROLE.UPGRADER)
+        else if(creep.memory.role == c.ROLE.UPGRADER.NAME)
         {
             creep_upgrader.run(creep);
         }
 
-        else if(creep.memory.role == c.ROLE.BUILDER)
+        else if(creep.memory.role == c.ROLE.BUILDER.NAME)
         {
             creep_builder.run(creep);
         }

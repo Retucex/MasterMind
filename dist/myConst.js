@@ -2,9 +2,21 @@ module.exports =
 {
     ROLE:
     {
-        HARVESTER: 'Harvester',
-        UPGRADER: 'Upgrader',
-        BUILDER: 'Builder'
+        HARVESTER:
+        {
+            NAME = 'Harvester',
+            LIMIT = 5
+        },
+        UPGRADER:
+        {
+            NAME = 'Upgrader',
+            LIMIT = 10
+        },
+        BUILDER:
+        {
+            NAME = 'Builder',
+            LIMIT = 2
+        },
     },
     TASK:
     {
